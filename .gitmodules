@@ -1,0 +1,6 @@
+[submodule "tinyobj"]
+  path = shared/tinyobj
+  url = https://github.com/lokopeto/tinyobj.git
+[submodule "gltf"]
+  path = shared/glTF2
+  url = https://github.com/lokopeto/glTF2.git
