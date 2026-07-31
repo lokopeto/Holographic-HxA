@@ -12,7 +12,6 @@ If dependencies was not included.. clone them out!
 *take that npm!*
 ```bash
 cd shared
-git clone https://github.com/lokopeto/tinyobj
 git clone https://github.com/lokopeto/glTF2
 cd ..
 ```
