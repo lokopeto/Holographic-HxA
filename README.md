@@ -1,5 +1,5 @@
 # Holographic HxA
-Native Odin Obj and glTF to [HxA](https://github.com/quelsolaar/HxA) file converter. **WARNING: this is in very early stage**
+Native Odin Obj and glTF to [HxA](https://github.com/quelsolaar/HxA) file converter. **WARNING: this is in very early development stage**
 
 ## Status
 ### OBJ
