@@ -1,5 +1,14 @@
-# Holographic HxA
-Native Odin Obj and glTF to [HxA](https://github.com/quelsolaar/HxA) file converter. **WARNING: this is in very early development stage**
+<div>
+	<img width="160" alt="logo" align="left" src="https://github.com/lokopeto/Holographic-HxA/blob/master/assets/logo.png"/>
+	<h3>Holographic HxA</h3>
+</div>
+
+
+Native Odin Obj and glTF to [HxA](https://github.com/quelsolaar/HxA) file converter. **WARNING: this is in very early 
+development stage**
+
+<p><br></p>
+<p><br></p>
 
 ## Status
 ### OBJ
