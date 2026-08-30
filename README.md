@@ -21,13 +21,13 @@ If dependencies was not included.. clone them out!
 *take that npm!*
 ```bash
 cd shared
-git clone https://github.com/lokopeto/glTF2
+git clone --recursive https://github.com/lokopeto/glTF2
 cd ..
 ```
 Put the folder on a really good spot, import to your beautiful Odin code, go break stuff!
 ## Run Tests
 ```bash
-git clone https://github.com/lokopeto/The-3D-Samples
+git clone --recursive https://github.com/lokopeto/The-3D-Samples
 odin test .
 ```
 The test will convert all models from a list of samples,
