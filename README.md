@@ -17,12 +17,8 @@ development stage**
 - In construction!
 
 ## Setup
-If dependencies was not included.. clone them out!
-*take that npm!*
 ```bash
-cd shared
-git clone --recursive https://github.com/lokopeto/glTF2
-cd ..
+git clone --recursive https://github.com/lokopeto/Holographic-HxA.git
 ```
 Put the folder on a really good spot, import to your beautiful Odin code, go break stuff!
 ## Run Tests
