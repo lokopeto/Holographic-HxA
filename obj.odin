@@ -342,8 +342,7 @@ converter_obj :: proc(data: []byte, dir: string, cfg: Config, allocator := conte
 				}
 				append(&face_indices, vi)
 			}
-			// Triangulation Logic
-			if len(face_indices) > 3 {
+			if len(face_indices) >= 3 {
 				i0 := face_indices[0]
 				// Fan triangulation
 				for k := 2; k < len(face_indices); k += 1 {
@@ -413,7 +412,6 @@ converter_obj :: proc(data: []byte, dir: string, cfg: Config, allocator := conte
 		commit_shape(&shapes, current_shape_name, prev_shape_face_offset, face_count - prev_shape_face_offset)
 	}
 	
-	
 	vertex := make(hxa.Layer_Stack, 4)
 	vertex[0] = {
 		name = hxa.CONVENTION_HARD_BASE_VERTEX_LAYER_NAME,
@@ -480,7 +478,7 @@ converter_obj :: proc(data: []byte, dir: string, cfg: Config, allocator := conte
 	*/
 
 	matID_used : [dynamic]i32le
-	matID_past : i32le 
+	matID_past : i32le = -1
 	matProcessed : map[i32le]bool
 		
 	{ verb("-Process Vertices")
@@ -518,6 +516,8 @@ converter_obj :: proc(data: []byte, dir: string, cfg: Config, allocator := conte
 			matID_past = material_ids[tex_index]
 		}
 	}
+
+
 
 	}; verb("-Processed")
 

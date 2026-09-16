@@ -86,7 +86,7 @@ converter :: proc(
 				verb("-Parse OBJ")
 				
 				verb("-Convert")
-				out = converter_obj(file, dir, cfg)
+				out = converter_obj(file, dir, cfg, allocator)
 
 				return
 			case ".gltf", ".glb":
@@ -96,10 +96,10 @@ converter :: proc(
 	        gltf_dir       = dir,
 					is_glb				 = ext == ".glb"
 		    }
-				data, parse_err := gltf.parse(file, options)
+				data, parse_err := gltf.parse(file, options, allocator)
 
 				verb("-Convert")
-				out = converter_gltf(data, dir, cfg)
+				out = converter_gltf(data, dir, cfg, allocator)
 				return
 			case:
 				verb("File Error:", "Invalid Ext")
@@ -198,8 +198,45 @@ main_test :: proc (T: ^testing.T) {
 		testing.expect(T, len(out_read.nodes) == len(modelhxa.nodes))
 		testing.expect(T, read_err == .None)
 
+
 		print("-- Read --")
 		print("Node Length:",len(out_read.nodes))
+		if len(out_read.nodes) > 0 {
+			for node, node_i in out_read.nodes {
+				print("Node",node_i)
+				switch content in node.content {
+			 		case hxa.Node_Geometry:
+						for sv in reflect.struct_fields_zipped(hxa.Node_Geometry) {
+							value := reflect.struct_field_value_by_name(content,sv.name)
+							switch v in value {
+								case u32le:
+									print("  ",sv.name, ": ", v, sep="")
+								case hxa.Layer_Stack:
+									print_layers(v)
+							}	
+						}
+			 		case hxa.Node_Image:
+						
+				}	
+			}
+		}
+		print_layers :: proc(layer: hxa.Layer_Stack) {
+			for l, l_i in layer {
+				data_len : int
+				switch data in l.data {
+					case []u8:
+						data_len = len(data)
+					case []i32le:
+						data_len = len(data)
+					case []f32le:
+						data_len = len(data)
+					case []f64le:
+						data_len = len(data)
+				}
+				print("    ",l.name," - Data: ", data_len, " / Components: ", l.components, sep="")
+			}
+		}
+
 		print("Internal Node Count:",out_read.internal_node_count)
 		print("Duration:", read_duration, ", Status: ", read_err, sep="")
 		print("----")
