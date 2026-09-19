@@ -1,5 +1,5 @@
 <div>
-	<img width="160" alt="logo" align="left" src="https://github.com/lokopeto/Holographic-HxA/blob/master/assets/logo.png"/>
+	<img width="160" alt="logo" align="left" src="https://github.com/lokopeto/assets/blob/master/Holo-HxA/logo.png"/>
 	<h3>Holographic HxA</h3>
 </div>
 

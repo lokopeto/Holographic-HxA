@@ -642,6 +642,7 @@ converter_obj :: proc(data: []byte, dir: string, cfg: Config, allocator := conte
 	}
 	out.nodes = nodes[:]
 
+	
 
 	//Free Mem
 	delete(vertices)
